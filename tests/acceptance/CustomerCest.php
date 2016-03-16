@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Customer;
+use App\Models\Person;
 use Page\Acceptance\CustomersPage;
 
 class CustomerCest
@@ -27,5 +29,35 @@ class CustomerCest
         $I->see('1234567890', 'table'); // phone
         $I->see('1 Example Street, Surabaya, Indonesia', 'table'); // address
         $I->see('Example Courier 1', 'table'); // courier
+    }
+
+    public function test_can_create_customer(AcceptanceTester $I)
+    {
+        $person = factory(Person::class)->make();
+        $customer = factory(Customer::class)->make([
+            'person_id' => $person->id,
+        ]);
+
+        $I->am('registered employee');
+        $I->wantTo('create a new customer');
+        $I->expectTo('be able to save a new customer and see the newly created customer');
+
+        $I->amOnPage(CustomersPage::route('/create'));
+
+        $I->fillField(CustomersPage::$formFields['company_name'], $customer->company_name);
+        $I->fillField(CustomersPage::$formFields['name'], $customer->name);
+        $I->fillField(CustomersPage::$formFields['phone'], $customer->phone);
+        $I->fillField(CustomersPage::$formFields['email'], $customer->email);
+        $I->fillField(CustomersPage::$formFields['address'], $customer->address);
+        $I->fillField(CustomersPage::$formFields['courier'], $customer->courier);
+        $I->click(CustomersPage::$formFields['submit']);
+
+        $I->wait(5);
+        $I->seeCurrentUrlEquals(CustomersPage::$URL);
+        $I->see($customer->company_name, 'table');
+        $I->see($customer->name, 'table');
+        $I->see($customer->phone, 'table');
+        $I->see($customer->address, 'table');
+        $I->see($customer->courier, 'table');
     }
 }
