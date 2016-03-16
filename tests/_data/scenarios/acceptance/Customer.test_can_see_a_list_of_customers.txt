@@ -1,0 +1,9 @@
+I WANT TO SEE A LIST OF CUSTOMERS ON THE CUSTOMERS INDEX PAGE
+
+I am 'registered employee'
+I look forward to 'see a list of customers being displayed in the datatable'
+I am on page "$customersPage::$URL"
+I wait "5"
+I see 'Example Company'," 'table'
+I see 'Example Customer'," 'table'
+

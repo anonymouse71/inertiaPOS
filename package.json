@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.8.8"
+  },
+  "dependencies": {
+    "laravel-elixir": "^3.0.0"
+  },
+  "browser": {
+    "jquery": "./bower_components/jquery/dist/jquery.js",
+    "pace": "./bower_components/pace/pace.js",
+    "jquery-ujs": "./bower_components/jquery-ujs/src/rails.js",
+    "bootstrap": "./bower_components/bootstrap/dist/js/bootstrap.js",
+    "fastclick": "./bower_components/fastclick/lib/fastclick.js",
+    "slimscroll": "./bower_components/slimScroll/jquery.slimscroll.js",
+    "admin-lte": "./bower_components/AdminLTE/dist/js/app.js",
+    "turbolinks": "./resources/assets/js/turbolinks.js",
+    "jquery-turbolinks": "./resources/assets/js/jquery.turbolinks.js"
+  }
+}
