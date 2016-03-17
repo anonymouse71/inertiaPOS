@@ -40,7 +40,10 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $person = Person::create($request->all());
+        $person->customer()->create($request->all());
+
+        return redirect(route('customers.index'));
     }
 
     /**
