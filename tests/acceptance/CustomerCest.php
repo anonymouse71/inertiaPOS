@@ -45,10 +45,10 @@ class CustomerCest
         $I->amOnPage(CustomersPage::route('/create'));
 
         $I->fillField(CustomersPage::$formFields['company_name'], $customer->company_name);
-        $I->fillField(CustomersPage::$formFields['name'], $customer->name);
-        $I->fillField(CustomersPage::$formFields['phone'], $customer->phone);
-        $I->fillField(CustomersPage::$formFields['email'], $customer->email);
-        $I->fillField(CustomersPage::$formFields['address'], $customer->address);
+        $I->fillField(CustomersPage::$formFields['name'], $person->name);
+        $I->fillField(CustomersPage::$formFields['phone'], $person->phone);
+        $I->fillField(CustomersPage::$formFields['email'], $person->email);
+        $I->fillField(CustomersPage::$formFields['address'], $person->address);
         $I->fillField(CustomersPage::$formFields['courier'], $customer->courier);
         $I->click(CustomersPage::$formFields['submit']);
 
