@@ -54,10 +54,9 @@ class CustomerCest
 
         $I->wait(5);
         $I->seeCurrentUrlEquals(CustomersPage::$URL);
-        $I->see($customer->company_name, 'table');
-        $I->see($customer->name, 'table');
-        $I->see($customer->phone, 'table');
-        $I->see($customer->address, 'table');
-        $I->see($customer->courier, 'table');
+        $I->see($customer->company_name);
+        $I->see($person->name);
+        $I->see($person->phone);
+        $I->see($customer->courier);
     }
 }
