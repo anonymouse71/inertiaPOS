@@ -12,4 +12,10 @@ class Person extends Model
         'email',
         'address',
     ];
+
+    // <<<<<<<<<< Relationships >>>>>>>>>>
+    public function customer()
+    {
+        return $this->hasOne(Customer::class);
+    }
 }
