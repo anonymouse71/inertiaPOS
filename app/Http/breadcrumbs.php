@@ -6,7 +6,11 @@ Breadcrumbs::register('dashboard.index', function ($breadcrumbs) {
 });
 
 // Customers
-Breadcrumbs::register('customers.index', function($breadcrumbs){
+Breadcrumbs::register('customers.index', function ($breadcrumbs) {
     $breadcrumbs->parent('dashboard.index');
     $breadcrumbs->push('Customers', route('customers.index'));
+});
+Breadcrumbs::register('customers.create', function ($breadcrumbs) {
+    $breadcrumbs->parent('customers.index');
+    $breadcrumbs->push('Create Customer', route('customers.create'));
 });
