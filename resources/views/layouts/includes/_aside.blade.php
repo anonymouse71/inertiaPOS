@@ -38,7 +38,7 @@
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li class="{{ active_class(if_route(['customers.index'])) }}">
+            <li class="{{ active_class(if_route_pattern(['customers.*'])) }}">
                 <a href="{{ route('customers.index') }}">
                     <i class="fa fa-group"></i> <span>Customers</span>
                 </a>

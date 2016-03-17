@@ -152,6 +152,8 @@ return [
         HieuLe\Active\ActiveServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
+        AdamWathan\BootForms\BootFormsServiceProvider::class,
+        AdamWathan\Form\FormServiceProvider::class,
     ],
 
     /*
@@ -204,6 +206,8 @@ return [
         'Active'      => HieuLe\Active\Facades\Active::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Html'        => Collective\Html\HtmlFacade::class,
+        'BootForm'    => AdamWathan\BootForms\Facades\BootForm::class,
+        'Form'        => AdamWathan\Form\Facades\Form::class,
     ],
 
 ];
