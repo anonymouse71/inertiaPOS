@@ -37,4 +37,25 @@ class Customer extends Model
     {
         return $this->belongsTo(Person::class);
     }
+
+    // <<<<<<<<<< Accessors & Mutators >>>>>>>>>>
+    public function getNameAttribute()
+    {
+        return $this->person->name;
+    }
+
+    public function getPhoneAttribute()
+    {
+        return $this->person->phone;
+    }
+
+    public function getEmailAttribute()
+    {
+        return $this->person->email;
+    }
+
+    public function getAddressAttribute()
+    {
+        return $this->person->address;
+    }
 }
