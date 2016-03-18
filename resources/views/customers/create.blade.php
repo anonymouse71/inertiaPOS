@@ -1,7 +1,7 @@
 @extends('layouts._master')
 
 @section('page-header')
-    Create Customers
+    Create Customer
 @endsection
 
 @section('content')

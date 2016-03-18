@@ -1,7 +1,7 @@
 @extends('layouts._master')
 
 @section('page-header')
-    Edit Customers
+    Edit Customer [{{ $customer->name }}]
 @endsection
 
 @section('content')
