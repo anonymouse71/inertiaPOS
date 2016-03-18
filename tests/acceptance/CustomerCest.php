@@ -62,7 +62,6 @@ class CustomerCest
 
     public function test_can_edit_customer(AcceptanceTester $I)
     {
-        $customer = factory(Customer::class)->create();
         $newData = new \StdClass();
         $newData->name = 'My New Name';
         $newData->courier = 'The New Courier';
@@ -71,14 +70,7 @@ class CustomerCest
         $I->wantTo('edit an existing customer');
         $I->expectTo('be able to edit an existing customer\'s data');
 
-        $I->amOnPage(CustomersPage::route("/$customer->id/edit"));
-
-        $I->see($customer->company_name);
-        $I->see($customer->courier);
-        $I->see($customer->name);
-        $I->see($customer->phone);
-        $I->see($customer->email);
-        $I->see($customer->address);
+        $I->amOnPage(CustomersPage::route('/1/edit'));
 
         $I->fillField(CustomersPage::$formFields['name'], $newData->name);
         $I->fillField(CustomersPage::$formFields['courier'], $newData->courier);
@@ -86,10 +78,7 @@ class CustomerCest
 
         $I->wait(5);
         $I->seeCurrentUrlEquals(CustomersPage::$URL);
-        $I->see($customer->company_name);
         $I->see($newData->name);
         $I->see($newData->courier);
-        $I->see($customer->phone);
-        $I->see($customer->email);
     }
 }
