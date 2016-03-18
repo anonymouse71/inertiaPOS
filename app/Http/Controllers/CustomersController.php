@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DataTables\CustomersDatatable;
 use App\Http\Requests;
+use App\Models\Customer;
 use App\Models\Person;
 use Illuminate\Http\Request;
 
@@ -67,7 +68,9 @@ class CustomersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $customer = Customer::findOrFail($id);
+
+        return view('customers.edit', compact('customer'));
     }
 
     /**
