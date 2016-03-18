@@ -11,7 +11,7 @@
                 <div class="box-body">
                     <div class="col-sm-7">
                         <?php $columnSizes = ['sm' => [4, 8]]; ?>
-                        {!! BootForm::openHorizontal($columnSizes)->post()->action(route('customers.update')) !!}
+                        {!! BootForm::openHorizontal($columnSizes)->put()->action(route('customers.update', $customer)) !!}
                         {!! BootForm::bind($customer) !!}
                         @include('customers.partials._form')
                         {!! BootForm::close() !!}
