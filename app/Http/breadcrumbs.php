@@ -14,3 +14,7 @@ Breadcrumbs::register('customers.create', function ($breadcrumbs) {
     $breadcrumbs->parent('customers.index');
     $breadcrumbs->push('Create Customer', route('customers.create'));
 });
+Breadcrumbs::register('customers.edit', function ($breadcrumbs) {
+    $breadcrumbs->parent('customers.index');
+    $breadcrumbs->push('Edit Customer', route('customers.edit'));
+});

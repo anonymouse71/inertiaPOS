@@ -59,4 +59,26 @@ class CustomerCest
         $I->see($person->phone);
         $I->see($customer->courier);
     }
+
+    public function test_can_edit_customer(AcceptanceTester $I)
+    {
+        $newData = new \StdClass();
+        $newData->name = 'My New Name';
+        $newData->courier = 'The New Courier';
+
+        $I->am('registered employee');
+        $I->wantTo('edit an existing customer');
+        $I->expectTo('be able to edit an existing customer\'s data');
+
+        $I->amOnPage(CustomersPage::route('/1/edit'));
+
+        $I->fillField(CustomersPage::$formFields['name'], $newData->name);
+        $I->fillField(CustomersPage::$formFields['courier'], $newData->courier);
+        $I->click('Save');
+
+        $I->wait(5);
+        $I->seeCurrentUrlEquals(CustomersPage::$URL);
+        $I->see($newData->name);
+        $I->see($newData->courier);
+    }
 }
