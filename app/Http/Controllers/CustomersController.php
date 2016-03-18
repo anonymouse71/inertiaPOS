@@ -83,7 +83,11 @@ class CustomersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $customer = Customer::findOrFail($id);
+        $customer->update($request->all());
+        $customer->person()->update($request->all());
+
+        return redirect(route('customers.index'));
     }
 
     /**
