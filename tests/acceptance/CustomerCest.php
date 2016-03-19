@@ -90,7 +90,7 @@ class CustomerCest
 
         $I->amOnPage(CustomersPage::$URL);
 
-        $I->click('//*[@id="dataTableBuilder"]/tbody/tr[2]/td[6]/div/button');
+        $I->click('//*[@id="dataTableBuilder"]/tbody/tr[2]/td[6]/div/a[2]');
         $I->acceptPopup();
 
         $I->wait(5);
