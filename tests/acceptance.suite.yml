@@ -11,3 +11,8 @@ modules:
         - WebDriver:
             url: 'http://inertia-pos.dev/'
             browser: chrome
+            window_size: 1366x677
+            wait: 5
+            capabilities:
+                unexpectedAlertBehaviour: 'accept'
+                webStorageEnabled: true
