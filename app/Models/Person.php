@@ -4,6 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\Person
+ *
+ * @property-read \App\Models\Customer $customer
+ */
 class Person extends Model
 {
     protected $fillable = [
