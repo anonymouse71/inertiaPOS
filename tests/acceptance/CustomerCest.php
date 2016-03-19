@@ -81,4 +81,23 @@ class CustomerCest
         $I->see($newData->name);
         $I->see($newData->courier);
     }
+
+    public function test_can_delete_customer(AcceptanceTester $I)
+    {
+        $I->am('registered employee');
+        $I->wantTo('delete an existing customer');
+        $I->expectTo('be able to delete an existing customer');
+
+        $I->amOnPage(CustomersPage::$URL);
+
+        $I->click('//*[@id="dataTableBuilder"]/tbody/tr[2]/td[6]/div/button');
+        $I->acceptPopup();
+
+        $I->wait(5);
+        $I->dontSee('Example Company 1', 'table'); // company name
+        $I->dontSee('Example Customer 1', 'table'); // name
+        $I->dontSee('1234567890', 'table'); // phone
+        $I->dontSee('1 Example Street, Surabaya, Indonesia', 'table'); // address
+        $I->dontSee('Example Courier 1', 'table'); // courier
+    }
 }
