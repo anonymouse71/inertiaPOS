@@ -99,6 +99,8 @@ class CustomersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Customer::destroy($id);
+
+        return redirect(route('customers.index'));
     }
 }

@@ -17,7 +17,7 @@ class CustomersDatatable extends DataTable
     public function ajax()
     {
         return $this->datatables
-            ->eloquent($this->query())
+            ->of($this->query())
             ->addColumn('action', 'customers.partials._table-actions')
             ->make(true);
     }
@@ -29,7 +29,7 @@ class CustomersDatatable extends DataTable
      */
     public function query()
     {
-        $customers = Customer::withTrashed();
+        $customers = Customer::all();
 
         return $this->applyScopes($customers);
     }
