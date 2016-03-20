@@ -17,7 +17,7 @@ class CustomersDatatable extends DataTable
     public function ajax()
     {
         return $this->datatables
-            ->of($this->query())
+            ->eloquent($this->query())
             ->addColumn('action', 'customers.partials._table-actions')
             ->make(true);
     }
@@ -29,7 +29,7 @@ class CustomersDatatable extends DataTable
      */
     public function query()
     {
-        $customers = Customer::all();
+        $customers = Customer::select();
 
         return $this->applyScopes($customers);
     }
@@ -59,14 +59,17 @@ class CustomersDatatable extends DataTable
             'company_name',
             [
                 'data'  => 'person.name',
+                'name'  => 'person.name',
                 'title' => 'Name',
             ],
             [
                 'data'  => 'person.phone',
+                'name'  => 'person.phone',
                 'title' => 'Phone',
             ],
             [
                 'data'  => 'person.address',
+                'name'  => 'person.address',
                 'title' => 'Address',
             ],
             'courier',
